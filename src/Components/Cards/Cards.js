@@ -25,7 +25,19 @@ class Cards extends Component {
         return (
             <div>
                 {this.state.cards.map((card, i) => {
-                    return <Card card={card} />
+                    result = '';
+
+                    if (i != 0 && (i+1 % 4) == 0) {
+                        result = result + <Row>
+                    }
+
+                    result = result + <Col><Card card={card} /></Col>
+
+                    if ((i+1 % 4) == 0) {
+                        result = result + </Row>
+                    }
+
+                    return result
                 })}
             </div>
         );
